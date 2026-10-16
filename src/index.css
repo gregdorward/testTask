@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-white text-obsidian antialiased;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-5 py-3 text-sm font-semibold
+           transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  /* Primary CTA — Blaze orange, used only for calls to action */
+  .btn-accent {
+    @apply btn bg-accent text-white hover:bg-accent-hover active:scale-[0.98];
+  }
+  /* Secondary — Obsidian */
+  .btn-dark {
+    @apply btn bg-obsidian text-white hover:bg-black active:scale-[0.98];
+  }
+  .btn-outline {
+    @apply btn border border-clay-dark bg-white text-obsidian hover:border-obsidian;
+  }
+  .field {
+    @apply w-full rounded-lg border border-clay-dark bg-white px-4 py-3 text-sm
+           outline-none transition focus:border-obsidian focus:ring-1 focus:ring-obsidian;
+  }
+  .label {
+    @apply mb-1.5 block text-sm font-medium text-obsidian/70;
+  }
+  .card {
+    @apply rounded-2xl border border-clay-dark/60 bg-white;
+  }
+  /* small uppercase section eyebrow (replaces former orange eyebrows) */
+  .eyebrow {
+    @apply text-xs font-semibold uppercase tracking-[0.18em] text-obsidian/50;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
